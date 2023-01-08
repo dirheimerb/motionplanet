@@ -29,18 +29,6 @@ model accounts {
   @@index([userId])
 }
 
-model posts {
-  id         String   @id
-  title      String
-  content    Json?
-  published  Boolean  @default(false)
-  created_at DateTime @default(now())
-  updated_at DateTime @default(now())
-  authorId   String
-
-  @@index([authorId])
-}
-
 model sessions {
   id           String   @id
   sessionToken String   @unique
@@ -48,6 +36,7 @@ model sessions {
   expires      DateTime
 
   @@index([userId])
+  @@index([id])
 }
 
 model users {
@@ -68,17 +57,6 @@ model verification_tokens {
 
   @@unique([identifier, token])
 }
-
-
-model todo {
-  id        String   @id
-  title     String
-  completed Boolean  @default(false)
-  user_id   String
-
-  @@index([user_id])
-}
-
 model tasks {
   id        String   @id
   content String

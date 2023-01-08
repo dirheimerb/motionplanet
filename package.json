@@ -18,9 +18,18 @@
   },
   "homepage": "https://github.com/dirheimerb/motionplanet#readme",
   "devDependencies": {
-    "prisma": "^4.8.1"
+    "@types/node": "^18.11.18",
+    "@types/react": "^18.0.26",
+    "@types/react-dom": "^18.0.10",
+    "eslint": "^8.31.0",
+    "prettier": "^2.8.2",
+    "prisma": "^4.8.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.4"
   },
   "dependencies": {
-    "@prisma/client": "^4.8.1"
+    "@next-auth/prisma-adapter": "^1.0.5",
+    "@prisma/client": "^4.8.1",
+    "next-auth": "^4.18.8"
   }
 }
