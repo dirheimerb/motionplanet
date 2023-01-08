@@ -1,0 +1,89 @@
+generator client {
+  provider = "prisma-client-js"
+  
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+  relationMode = "prisma"
+}
+
+model accounts {
+  id                String   @id
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?  @db.Text
+  access_token      String?  @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?  @db.Text
+  session_state     String?
+  created_at        DateTime @default(now())
+  updated_at        DateTime @default(now())
+
+  @@unique([provider, providerAccountId])
+  @@index([userId])
+}
+
+model posts {
+  id         String   @id
+  title      String
+  content    Json?
+  published  Boolean  @default(false)
+  created_at DateTime @default(now())
+  updated_at DateTime @default(now())
+  authorId   String
+
+  @@index([authorId])
+}
+
+model sessions {
+  id           String   @id
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+
+  @@index([userId])
+}
+
+model users {
+  id                        String    @id
+  name                      String?
+  email                     String?   @unique
+  password                  String?   @db.Text
+  emailVerified             DateTime?
+  image                     String?
+  created_at                DateTime  @default(now())
+  updated_at                DateTime  @default(now())
+}
+
+model verification_tokens {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
+
+
+model todo {
+  id        String   @id
+  title     String
+  completed Boolean  @default(false)
+  user_id   String
+
+  @@index([user_id])
+}
+
+model tasks {
+  id        String   @id
+  content String
+  completed Boolean  @default(false)
+  user_id   String
+
+  @@index([user_id])
+}

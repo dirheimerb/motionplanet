@@ -1,0 +1,26 @@
+{
+  "name": "motionplanet",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dirheimerb/motionplanet.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dirheimerb/motionplanet/issues"
+  },
+  "homepage": "https://github.com/dirheimerb/motionplanet#readme",
+  "devDependencies": {
+    "prisma": "^4.8.1"
+  },
+  "dependencies": {
+    "@prisma/client": "^4.8.1"
+  }
+}
